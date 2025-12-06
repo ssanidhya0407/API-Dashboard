@@ -1,36 +1,107 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌐 API-Dashboard
+> **Next-Gen Microservices Observability Platform**
 
-## Getting Started
 
-First, run the development server:
+[![Next.js](https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
+[![Spring Boot](https://img.shields.io/badge/Spring_Boot-3-green?style=for-the-badge&logo=springboot)](https://spring.io/projects/spring-boot)
+[![Kotlin](https://img.shields.io/badge/Kotlin-1.9-purple?style=for-the-badge&logo=kotlin)](https://kotlinlang.org/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-47A248?style=for-the-badge&logo=mongodb)](https://www.mongodb.com/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
+[![Three.js](https://img.shields.io/badge/Three.js-Fiber-black?style=for-the-badge&logo=three.js)](https://docs.pmnd.rs/react-three-fiber)
 
+---
+
+## ⚡ Overview
+
+**Nexus Dashboard** is a high-performance observability tool designed to visualize, monitor, and stress-test microservices architectures in real-time. 
+
+Built with a **Spring Boot (Kotlin)** backend for robust data ingestion and a **Next.js** frontend for a premium, interactive experience, it features a stunning **3D Network Topology** graph that brings your infrastructure to life.
+
+## ✨ Key Features
+
+### 🔍 Interactive 3D Topology
+Visualize your entire service mesh as a living, breathing 3D network.
+- **Real-time Traffic**: Pulse animations show data flowing between services.
+- **Health States**: Nodes change color dynamically based on health status (Healthy, Latency Warning, Error Critical).
+- **Interactive**: Zoom, pan, and rotate to inspect connections.
+
+### 🕹️ Traffic Simulator
+Built-in chaos engineering tool to test your system's resilience.
+- **Load Generation**: Simulate organic traffic spikes.
+- **Chaos Scenarios**: Inject "Latency Spikes" or "Error Bursts" to see how the dashboard reacts.
+
+### 📊 Real-Time Analytics
+- **Live Metrics**: Log ingestion via REST API with sub-second dashboard updates.
+- **Bot/Scraper Protection**: Intelligent pattern detection.
+- **Top Slow Endpoints**: Automatically identifies performance bottlenecks.
+
+### 🚨 Smart Alerts
+- **Incident Center**: Auto-grouping of anomalies into incidents.
+- **Resolution Workflow**: Mark incidents as resolved directly from the UI.
+
+---
+
+## 🛠️ Architecture
+
+### Frontend (`/frontend`)
+- **Framework**: Next.js 14 (App Router)
+- **Styling**: Tailwind CSS + Custom Animations
+- **Visualization**: React Three Fiber (3D), Recharts (2D)
+- **State**: React Hooks + Polling
+
+### Backend (`/backend/collector-service`)
+- **Language**: Kotlin
+- **Framework**: Spring Boot 3
+- **Database**: MongoDB (Reactive Streams)
+- **Architecture**: Controller -> Service -> Repository (DTO Pattern)
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js 18+
+- JDK 17+
+- MongoDB Local or Atlas Connection String
+
+### 1. Clone the Repository
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/yourusername/nexus-dashboard.git
+cd nexus-dashboard
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Start the Backend
+```bash
+cd backend
+./gradlew :collector-service:bootRun
+```
+*The server will start on `PORT 8080`.*
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Start the Frontend
+```bash
+cd frontend
+npm install
+npm run dev
+```
+*The dashboard will be available at `http://localhost:3000`.*
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## ☁️ Deployment
 
-To learn more about Next.js, take a look at the following resources:
+We support cloud-native deployment out of the box.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Frontend**: Deploy provided `frontend` folder to **Vercel** or **Netlify**.
+- **Backend**: Deploy `backend/collector-service` to **Railway**, **Render**, or **AWS**.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+> **Note**: Checks `lib/config.ts` and `application.properties` for environment variable overrides (`NEXT_PUBLIC_API_URL`, `SPRING_DATA_MONGODB_URI`).
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🤝 Contributing
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Contributions are welcome! Please fork the repo and submit a PR.
+
+## 📄 License
+
+MIT © 2024 Sanidhya Kumar Singh(ssanidhya0407)
