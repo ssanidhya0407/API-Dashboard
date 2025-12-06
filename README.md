@@ -13,7 +13,7 @@
 
 ## ⚡ Overview
 
-**Nexus Dashboard** is a high-performance observability tool designed to visualize, monitor, and stress-test microservices architectures in real-time. 
+**API-Dashboard** is a high-performance observability tool designed to visualize, monitor, and stress-test microservices architectures in real-time. 
 
 Built with a **Spring Boot (Kotlin)** backend for robust data ingestion and a **Next.js** frontend for a premium, interactive experience, it features a stunning **3D Network Topology** graph that brings your infrastructure to life.
 
